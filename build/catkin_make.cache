@@ -1,0 +1,2 @@
+abc:mp_controls
+-DCATKIN_DEVEL_PREFIX=/home/parthag/mech_ws/devel -DCMAKE_INSTALL_PREFIX=/home/parthag/mech_ws/install -G Unix Makefiles

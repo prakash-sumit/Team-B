@@ -1,0 +1,8 @@
+prefix=/home/parthag/mech_ws/install
+
+Name: abc
+Description: Description of abc
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

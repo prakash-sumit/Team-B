@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="Assem2">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.00174619017977 6.24707071351371E-05 -0.0255370391164361"
+        rpy="0 0 0" />
+      <mass
+        value="1.00225690416807" />
+      <inertia
+        ixx="0.00104861765126244"
+        ixy="-3.62433809463736E-06"
+        ixz="2.84889611920193E-05"
+        iyy="0.00356385648031135"
+        iyz="2.01598860300557E-06"
+        izz="0.00416220148464466" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem2/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem2/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="linkright">
+    <inertial>
+      <origin
+        xyz="3.46944695195361E-18 0.00559515385625099 1.80411241501588E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.10981823361294" />
+      <inertia
+        ixx="8.68564732243223E-05"
+        ixy="-2.72791896451786E-21"
+        ixz="4.14375796986194E-21"
+        iyy="0.000170732322983804"
+        iyz="-9.0750769019773E-21"
+        izz="8.68564732243223E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem2/meshes/linkright.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem2/meshes/linkright.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rightlink"
+    type="continuous">
+    <origin
+      xyz="-0.06 -0.06016 -0.023348"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="linkright" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="1"
+      velocity="1" />
+  </joint>
+  <link
+    name="linkleft">
+    <inertial>
+      <origin
+        xyz="-1.04083408558608E-17 -0.00559515385625081 1.38777878078145E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.10981823361294" />
+      <inertia
+        ixx="8.68564732243222E-05"
+        ixy="1.41311408770085E-20"
+        ixz="4.30502056982483E-23"
+        iyy="0.000170732322983803"
+        iyz="8.48943230662383E-21"
+        izz="8.68564732243222E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem2/meshes/linkleft.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Assem2/meshes/linkleft.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="leftjoint"
+    type="continuous">
+    <origin
+      xyz="-0.06 0.06016 -0.023348"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="linkleft" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      effort="1"
+      velocity="1" />
+  </joint>
+  <!-- <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+  </plugin>
+  </gazebo> -->
+  <gazebo>
+    <plugin filename="libgazebo_ros_diff_drive.so" name="differential_drive_controller">
+      <alwaysOn>true</alwaysOn>
+      <updateRate>20</updateRate>
+      <leftJoint>leftjoint</leftJoint>
+      <rightJoint>rightlink</rightJoint>
+      <!-- <wheelSeparation>0.4</wheelSeparation>
+      <wheelDiameter>0.2</wheelDiameter> -->
+      <torque>0.1</torque>
+      <commandTopic>cmd_vel</commandTopic>
+      <odometryTopic>odom</odometryTopic>
+      <odometryFrame>odom</odometryFrame>
+      <robotBaseFrame>base_link</robotBaseFrame>
+    </plugin>
+  </gazebo>
+</robot>

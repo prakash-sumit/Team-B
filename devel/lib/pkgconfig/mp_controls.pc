@@ -1,0 +1,8 @@
+prefix=/home/parthag/mech_ws/devel
+
+Name: mp_controls
+Description: Description of mp_controls
+Version: 0.0.0
+Cflags: -I/home/parthag/mech_ws/devel/include
+Libs: -L${prefix}/lib 
+Requires: geometry_msgs nav_msgs rospy tf message_runtime
