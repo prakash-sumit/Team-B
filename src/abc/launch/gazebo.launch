@@ -1,6 +1,8 @@
 <launch>
   <include
-    file="$(find gazebo_ros)/launch/empty_world.launch" />
+    file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find abc)/world/trial.world"/>
+  </include>
   <node
     name="tf_footprint_base"
     pkg="tf"
@@ -10,7 +12,7 @@
     name="spawn_model"
     pkg="gazebo_ros"
     type="spawn_model"
-    args="-file $(find abc)/urdf/Assem2.urdf -urdf -model Assem2"
+    args="-file $(find abc)/urdf/Assem2.urdf -urdf -model Assem2 -x 12 -y 0 -z 0 -Y 1.57"
     output="screen" />
   <node
     name="fake_joint_calibration"
