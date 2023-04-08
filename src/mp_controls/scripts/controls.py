@@ -12,6 +12,10 @@ kp = 1.0
 kd = 0.2
 ki = 0.02
 
+# parameters
+yaw_precision_ = math.pi / 90 # +/- 2 degree allowed
+dist_precision_ = 0.3
+
 class Robot:
     def __init__(self):
         
@@ -58,6 +62,8 @@ class Robot:
             # Error
             error = target_angle - yaw
             
+            #if error <= 0.01 :
+                
             # Derivative and integral errors
             derivative_error = error - self.prev_error
             self.prev_error = error

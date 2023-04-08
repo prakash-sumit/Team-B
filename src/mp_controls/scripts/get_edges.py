@@ -1,6 +1,6 @@
 import pandas as pd 
 
-df = pd.read_csv("my_maze_solved.csv")
+df = pd.read_csv("/home/parthag/mech_ws/src/mp_controls/scripts/my_maze_solved.csv")
 
 class Vector:
     def __init__(self, x, y):
@@ -34,6 +34,6 @@ for i in range(2, df.shape[0]-2):
 for i in edges:
     print(i.x, i.y)
 
-with open('output_array.csv', 'w') as f:
+with open('/home/parthag/mech_ws/src/mp_controls/scripts/output_array.csv', 'w') as f:
     for i in edges:
         f.write(f"{i.x},{i.y}\n")
