@@ -1,8 +1,12 @@
 source = "/home/parthag/mech_ws/src/mp_controls/scripts/test_maze.jpg"
 width, height = 0, 0  # they are given values later
 
-start = (4, 190)
-end = (388, 190)
+# start = (4, 190)
+# end = (388, 190)
+
+start = (550, 343)
+end = (18, 343)
+
 
 ############################################ convert image to array ###################################################
 
@@ -73,7 +77,7 @@ if __name__ == '__main__':
             with open('/home/parthag/mech_ws/src/mp_controls/scripts/my_maze_solved.csv', 'w') as f:
                 f.write('x,y\n')
                 for i, coord in enumerate(path_coords):
-                    f.write(f'{coord[0]},{coord[1]}\n')
+                    f.write(f'{coord[0]},{600 - coord[1]}\n')
         except Exception as e:
             print('Error saving path array:', e)
         print(path_array)
