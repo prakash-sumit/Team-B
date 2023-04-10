@@ -1,5 +1,6 @@
 source = "/home/parthag/mech_ws/src/mp_controls/scripts/test_maze.jpg"
 width, height = 0, 0  # they are given values later
+
 start = (4, 190)
 end = (388, 190)
 
